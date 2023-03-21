@@ -3,11 +3,15 @@ function solveEquation(a, b, c) {
   let arr = [];
   const discriminant = b ** 2 - 4 * a * c;
 
-  if (discriminant < 0) return arr;
-
   if (discriminant === 0) {
-    const r = -b / (2 * a);
-    arr.push(r);
+    const root = -b / (2 * a);
+    arr.push(root);
+  }
+
+  if (discriminant > 0) {
+    const root1 = (-b + Math.sqrt(d) )/(2*a);
+    const root2 = (-b - Math.sqrt(d) )/(2*a);
+    arr.push(root1, root2);
   }
 
   return arr;
@@ -15,7 +19,9 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
    for (let arg of arguments) {
-    if (isNaN(arg)) return 'Please provide correct values.';
+    if (isNaN(arg)) {
+      return false;
+    }
   }
 
   const monthlyPercent = percent / 100 / 12;
