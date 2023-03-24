@@ -16,9 +16,7 @@ Student.prototype.addMarks = function (...marksToAdd) {
     return;
   }
 
-  for (let mark of marksToAdd) {
-    this.marks.push(mark);
-  }
+  this.marks.push(...marksToAdd);
 }
 
 Student.prototype.getAverage = function () {
@@ -26,13 +24,11 @@ Student.prototype.getAverage = function () {
     return 0;
   }
 
-  let count = 0;
   const averageMark = this.marks.reduce((acc, mark) => {
-    count++;
     return acc + mark;
   }, 0);
 
-  return averageMark / count;
+  return averageMark / this.marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
