@@ -1,12 +1,10 @@
 ﻿// // 1
 function parseCount(value) {
-    const parsedValue = parseFloat(value);
-    if (isNaN(parsedValue)) {
+    if (isNaN(parseFloat(value))) {
       throw new Error('Невалидное значение')
     }
-    else {
-      return parsedValue;
-    }
+    
+    return parseFloat(value);
   }
   
   function validateCount(value) {
@@ -48,7 +46,14 @@ function parseCount(value) {
       return triangle;
     }
     catch (error) {
-      throw new Error('Ошибка! Треугольник не существует');
+        return {
+            get perimeter() {
+                return 'Ошибка! Треугольник не существует';
+            },
+            get area() {
+                return 'Ошибка! Треугольник не существует';
+            }
+        }
     }
   }
   
