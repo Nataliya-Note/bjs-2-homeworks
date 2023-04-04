@@ -9,8 +9,7 @@ function parseCount(value) {
   
   function validateCount(value) {
     try {
-      const parsedValue = parseCount(value);
-      return parsedValue;
+      return parseCount(value);
     }
     catch (error) {
       return error;
@@ -42,8 +41,7 @@ function parseCount(value) {
   
   function getTriangle(a, b, c) {
     try {
-      const triangle = new Triangle(a, b, c);
-      return triangle;
+      return new Triangle(a, b, c);
     }
     catch (error) {
         return {
